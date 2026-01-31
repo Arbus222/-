@@ -152,7 +152,7 @@ const products = [
     }
 ];
 
-// Глобальні змінні
+
 let cart = [];
 let totalPrice = 0;
 const productsContainer = document.getElementById("products-container");
@@ -160,7 +160,7 @@ const resultsInfo = document.getElementById("results-info");
 const cartInfo = document.getElementById("cart-info");
 const miniCartCount = document.getElementById("mini-cart-count");
 
-// Елементи пошуку та фільтрів
+
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 const categoryFilter = document.getElementById("category-filter");
@@ -168,7 +168,7 @@ const priceFilter = document.getElementById("price-filter");
 const minPriceInput = document.getElementById("min-price-input");
 const resetFiltersBtn = document.getElementById("reset-filters");
 
-// Елементи модального вікна
+
 const modal = document.getElementById("modal");
 const closeBtn = document.querySelector(".close");
 const modalAddBtn = document.getElementById("modal-add-btn");
@@ -179,9 +179,7 @@ const navLinks = document.querySelectorAll('.nav-link');
 const cartIcon = document.getElementById('cart-icon');
 const logoHome = document.getElementById('logo-home');
 
-// ===== ОСНОВНІ ФУНКЦІЇ =====
 
-// Завантажити кошик з localStorage
 function loadCart() {
     const saved = localStorage.getItem("gameCart");
     if (saved) {
@@ -190,12 +188,12 @@ function loadCart() {
     }
 }
 
-// Зберегти кошик в localStorage
+
 function saveCart() {
     localStorage.setItem("gameCart", JSON.stringify(cart));
 }
 
-// Оновити інформацію про кошик
+
 function updateCartInfo() {
     const itemCount = cart.length;
     totalPrice = cart.reduce((sum, id) => {
@@ -203,18 +201,18 @@ function updateCartInfo() {
         return sum + (game ? game.price : 0);
     }, 0);
     
-    // Оновити лічильник в меню
+   
     if (miniCartCount) {
         miniCartCount.textContent = itemCount;
         
-        // Анімація при оновленні
+        
         miniCartCount.classList.add("cart-pulse");
         setTimeout(() => {
             miniCartCount.classList.remove("cart-pulse");
         }, 500);
     }
     
-    // Оновити інформацію в основному контенті
+   
     if (cartInfo) {
         cartInfo.innerHTML = `
             <span>Товарів у кошику: ${itemCount}</span>
@@ -224,7 +222,7 @@ function updateCartInfo() {
             <span>Сума: ${totalPrice} грн</span>
         `;
         
-        // Додати обробник для кнопки очищення кошика
+        
         const clearBtn = document.getElementById('clear-cart-btn');
         if (clearBtn) {
             clearBtn.addEventListener('click', clearCart);
@@ -240,7 +238,7 @@ function clearCart() {
             saveCart();
             updateCartInfo();
             
-            // Скинути всі кнопки "Додати в кошик"
+            
             document.querySelectorAll('.add-to-card-btn').forEach(btn => {
                 if (!btn.disabled) {
                     btn.textContent = 'Додати в кошик';
@@ -248,7 +246,7 @@ function clearCart() {
                 }
             });
             
-            // Якщо модальне вікно відкрите
+            
             if (currentModalGame) {
                 modalAddBtn.textContent = 'Додати в кошик';
                 modalAddBtn.style.background = '';
@@ -267,7 +265,7 @@ function addToCart(gameId, button = null) {
     saveCart();
     updateCartInfo();
     
-    // Анімація кнопки
+    
     if (button) {
         button.textContent = 'Додано!';
         button.style.background = '#27ae60';
@@ -277,7 +275,7 @@ function addToCart(gameId, button = null) {
         }, 1000);
     }
     
-    // Якщо модальне вікно відкрите, оновити кнопку там
+    
     if (currentModalGame && currentModalGame.id === gameId) {
         modalAddBtn.textContent = 'Додано!';
         modalAddBtn.style.background = '#27ae60';
@@ -325,7 +323,7 @@ function renderGames(games) {
             </div>
         `;
         
-        // Натискання на картку - відкриваємо інфо
+        
         card.addEventListener('click', (e) => {
             if (!e.target.classList.contains('add-to-card-btn')) {
                 openModal(game);
@@ -341,13 +339,13 @@ function renderGames(games) {
             });
         }
         
-        // Додати затримку для анімації
+        
         card.style.animationDelay = `${index * 0.1}s`;
         
         productsContainer.appendChild(card);
     });
     
-    // Оновити інформацію про результати
+    
     resultsInfo.textContent = `Знайдено ігор: ${games.length}`;
 }
 
@@ -372,11 +370,11 @@ function filterGames() {
     renderGames(filtered);
 }
 
-// Відкрити модальне вікно
+
 function openModal(game) {
     currentModalGame = game;
     
-    // Заповнити дані
+    
     document.getElementById('modal-image').style.backgroundImage = `url('${game.image}')`;
     document.getElementById('modal-title').textContent = game.title;
     document.getElementById('modal-category').textContent = game.category;
@@ -394,17 +392,17 @@ function openModal(game) {
     document.getElementById('modal-gpu-rec').textContent = game.requirements.rec.gpu;
     document.getElementById('modal-ram-rec').textContent = game.requirements.rec.ram;
     
-    // Кнопка в модальному вікні
+   
     modalAddBtn.disabled = !game.inStock;
     modalAddBtn.textContent = game.inStock ? 'Додати в кошик' : 'Немає в наявності';
     modalAddBtn.style.background = '';
     
-    // Показати модальне вікно
+   
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
 
-// Закрити модальне вікно
+
 function closeModal() {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
@@ -420,11 +418,11 @@ function resetFilters() {
     filterGames();
 }
 
-// Функція для оновлення таймера акцій
+
 function updateSaleTimers() {
     const timers = document.querySelectorAll('.timer');
     
-    // Встановлюємо час закінчення акцій
+    
     const endTimes = [
         new Date(Date.now() + 3 * 24 * 60 * 60 * 1000 + 12 * 60 * 60 * 1000 + 30 * 60 * 1000 + 15 * 1000), // 3 дні 12:30:15
         new Date(Date.now() + 1 * 24 * 60 * 60 * 1000 + 8 * 60 * 60 * 1000 + 45 * 60 * 1000 + 20 * 1000), // 1 день 08:45:20
@@ -456,13 +454,13 @@ function updateSaleTimers() {
     });
 }
 
-// Обробник для кнопок "Купити зараз" в акціях
+
 function setupSaleButtons() {
     const saleButtons = document.querySelectorAll('.sale-card .btn-primary');
     
     saleButtons.forEach((button, index) => {
         button.addEventListener('click', function() {
-            // ID ігор для акцій
+            
             const saleGameIds = [1, 2, 4]; // FC 26, GTA V, Cyberpunk 2077
             
             if (index < saleGameIds.length) {
@@ -472,7 +470,7 @@ function setupSaleButtons() {
                 if (game) {
                     addToCart(gameId);
                     
-                    // Анімація кнопки
+                    
                     const originalText = this.innerHTML;
                     this.innerHTML = '<i class="fas fa-check"></i> Додано в кошик';
                     this.style.background = '#27ae60';
@@ -487,9 +485,7 @@ function setupSaleButtons() {
     });
 }
 
-// ===== ОБРОБНИКИ ПОДІЙ =====
 
-// Пошук та фільтрація
 searchInput.addEventListener('input', filterGames);
 searchBtn.addEventListener('click', filterGames);
 categoryFilter.addEventListener('change', filterGames);
@@ -497,33 +493,33 @@ priceFilter.addEventListener('change', filterGames);
 minPriceInput.addEventListener('input', filterGames);
 resetFiltersBtn.addEventListener('click', resetFilters);
 
-// Модальне вікно
+
 closeBtn.addEventListener('click', () => {
     closeModal();
 });
 
-// Додавання з модального вікна
+
 modalAddBtn.addEventListener('click', () => {
     if (currentModalGame && currentModalGame.inStock) {
         addToCart(currentModalGame.id);
     }
 });
 
-// Закрити модальне вікно при кліку поза ним
+
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
         closeModal();
     }
 });
 
-// Закрити модальне вікно по ESC
+
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.style.display === 'block') {
         closeModal();
     }
 });
 
-// Навігація меню
+
 navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -531,13 +527,13 @@ navLinks.forEach(link => {
         if (href.startsWith('#')) {
             e.preventDefault();
             
-            // Активне посилання
+            
             navLinks.forEach(item => {
                 item.classList.remove('active');
             });
             this.classList.add('active');
             
-            // Плавна прокрутка
+            
             const targetId = href.substring(1);
             const targetElement = document.getElementById(targetId);
             
@@ -554,11 +550,11 @@ navLinks.forEach(link => {
     });
 });
 
-// Обробник для логотипу Kroko Store
+
 logoHome.addEventListener('click', function(e) {
     e.preventDefault();
     
-    // Активуємо кнопку "Головна"
+    
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === '#home') {
@@ -566,14 +562,14 @@ logoHome.addEventListener('click', function(e) {
         }
     });
     
-    // Плавна прокрутка до верху
+    
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
 });
 
-// Обробник для міні-кошика
+
 cartIcon.addEventListener('click', function() {
     if (cart.length === 0) {
         alert("🛒 Кошик порожній!\nДодайте товари з каталогу.");
@@ -587,60 +583,32 @@ cartIcon.addEventListener('click', function() {
     }
 });
 
-// ===== ІНІЦІАЛІЗАЦІЯ =====
 
-// Ініціалізація при завантаженні сторінки
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Kroko Store сторінка завантажена');
     
-    // Завантажити кошик
+    
     loadCart();
     
-    // Відобразити всі ігри
+    
     filterGames();
     
-    // Налаштувати таймери для акцій
+    
     updateSaleTimers();
     
-    // Налаштувати кнопки для акцій
+    
     setupSaleButtons();
     
-    // Додати стилі для відсутності результатів
-    const style = document.createElement('style');
-    style.textContent = `
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            grid-column: 1 / -1;
-        }
-        
-        .no-results i {
-            font-size: 64px;
-            color: #00ff41;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-        
-        .no-results h3 {
-            color: #fff;
-            margin-bottom: 10px;
-            font-size: 24px;
-        }
-        
-        .no-results p {
-            color: #aaa;
-            font-size: 16px;
-        }
-    `;
+    
     document.head.appendChild(style);
 });
 
-// Обробник зміни розміру вікна
+
 window.addEventListener('resize', function() {
     console.log(`Розмір вікна: ${window.innerWidth}x${window.innerHeight}`);
 });
 
-// Обробник прокрутки для меню
+
 window.addEventListener('scroll', function() {
     const nav = document.querySelector('.main-nav');
     if (window.scrollY > 50) {

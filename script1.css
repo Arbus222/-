@@ -1,4 +1,3 @@
-/* ===== ОСНОВНІ СТИЛІ ===== */
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +18,6 @@ body {
     padding: 0 20px;
 }
 
-/* ===== МЕНЮ НАВІГАЦІЇ ===== */
 .main-nav {
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
@@ -147,7 +145,6 @@ body {
     animation: cartPulse 0.5s ease;
 }
 
-/* ===== БАНЕР ===== */
 .hero-banner {
     min-height: 70vh;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
@@ -215,7 +212,6 @@ body {
     margin-top: 50px;
 }
 
-/* ===== КНОПКИ ===== */
 .btn {
     padding: 16px 32px;
     border-radius: 50px;
@@ -279,7 +275,6 @@ body {
     margin-top: 10px;
 }
 
-/* ===== ПОШУК ТА ФІЛЬТРИ ===== */
 .search-filters {
     background: #111;
     padding: 30px 0;
@@ -363,7 +358,6 @@ body {
     color: #666;
 }
 
-/* ===== ОСНОВНА СЕКЦІЯ ===== */
 main {
     padding: 60px 0;
     min-height: 70vh;
@@ -562,7 +556,6 @@ main {
     font-size: 14px;
 }
 
-/* ===== СЕКЦІЯ АКЦІЙ ===== */
 .sales {
     padding: 80px 0;
     background: #151515;
@@ -683,7 +676,6 @@ main {
     gap: 10px;
 }
 
-/* ===== ПЕРЕВАГИ ===== */
 .advantages {
     padding: 80px 0;
     background: #0f0f0f;
@@ -766,7 +758,6 @@ main {
     line-height: 1.6;
 }
 
-/* ===== МОДАЛЬНЕ ВІКНО ===== */
 .modal {
     display: none;
     position: fixed;
@@ -1011,7 +1002,6 @@ main {
     box-shadow: none;
 }
 
-/* ===== ФУТЕР ===== */
 footer {
     background: #0a0a0a;
     padding: 40px 0;
@@ -1041,7 +1031,6 @@ footer p {
     font-size: 14px;
 }
 
-/* ===== АДАПТИВНІСТЬ ===== */
 @media (max-width: 1200px) {
     .products-container {
         grid-template-columns: repeat(4, 1fr);
@@ -1188,12 +1177,10 @@ footer p {
     }
 }
 
-/* ===== ПЛАВНА ПРОКРУТКА ===== */
 html {
     scroll-behavior: smooth;
 }
 
-/* ===== СКРОЛБАР ===== */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -1211,7 +1198,6 @@ html {
     background: #00cc33;
 }
 
-/* ===== АНІМАЦІЇ ===== */
 @keyframes cardAppear {
     from {
         opacity: 0;
