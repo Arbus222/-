@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kroko Store | Найкращі ігри для PC, PlayStation та Xbox</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="script1.css">
+</head>
+<body>
+    <!-- Фіксоване меню -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand" id="logo-home">
+                <i class="fas fa-gamepad"></i>
+                <span class="brand-text">Kroko Store</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Головна</a>
+                <a href="#catalog" class="nav-link"><i class="fas fa-th-list"></i> Каталог</a>
+                <a href="#advantages" class="nav-link"><i class="fas fa-star"></i> Переваги</a>
+                <a href="#sales" class="nav-link"><i class="fas fa-percent"></i> Акції</a>
+            </div>
+            <div class="nav-mini-cart" id="cart-icon">
+                <span class="mini-cart-icon"><i class="fas fa-shopping-cart"></i></span>
+                <span class="mini-cart-count" id="mini-cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Банер/Герой секція -->
+    <header id="home" class="hero-banner">
+        <div class="banner-content">
+            <h1>Твій світ ігор починається тут</h1>
+            <p>Ексклюзивні пропозиції на новинки та бестселери для всіх платформ. Замовляй ключі онлайн — отримуй миттєво та грай одразу!</p>
+            <div class="banner-buttons">
+                <a href="#catalog" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i> Перейти до покупок
+                </a>
+                <a href="#advantages" class="btn btn-secondary">
+                    <i class="fas fa-crown"></i> Ексклюзивні умови
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Пошук та фільтри -->
+    <section class="search-filters">
+        <div class="container">
+            <div class="filters-grid">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Пошук ігор...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-group">
+                    <select id="category-filter" class="filter-select">
+                        <option value="all">Всі категорії</option>
+                        <option value="Simulator">Симулятор</option>
+                        <option value="Action-Adventure">Екшен-Пригоди</option>
+                        <option value="sandbox">Пісочниця</option>
+                        <option value="rpg">RPG</option>
+                        <option value="adventure">Пригоди</option>
+                        <option value="action">Екшен</option>
+                        <option value="party">Партійні</option>
+                        <option value="horror">Хорор</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="price-filter" class="filter-select">
+                        <option value="all">Будь-яка ціна</option>
+                        <option value="500">До 500 грн</option>
+                        <option value="1000">До 1000 грн</option>
+                        <option value="1500">До 1500 грн</option>
+                        <option value="2000">До 2000 грн</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <input type="number" id="min-price-input" placeholder="від 0 грн" min="0">
+                </div>
+                <button id="reset-filters" class="btn btn-secondary">
+                    <i class="fas fa-redo"></i> Скинути
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Основна секція з товарами -->
+    <main id="catalog">
+        <div class="container">
+            <div id="results-info" class="results-info"></div>
+            <div id="cart-info" class="cart-info"></div>
+            
+            <div id="products-container" class="products-container">
+                <!-- Картки ігор будуть тут -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Секція акцій -->
+    <section id="sales" class="sales">
+        <div class="container">
+            <h2 class="section-title">🔥 Гарячі акції</h2>
+            <p class="section-subtitle">Не пропустіть вигідні пропозиції</p>
+            
+            <div class="sales-grid">
+                <div class="sale-card">
+                    <div class="sale-badge">-50%</div>
+                    <div class="sale-image">
+                        <img src="https://cdn1.epicgames.com/offer/1d4d85b1051e41ee8f1a099e99d59f3f/EGS_EASPORTSFC26StandardEdition_EACANADA_S1_2560x1440-efabe29766334696db018632ea5ba492" alt="FC 26">
+                    </div>
+                    <div class="sale-info">
+                        <h3>FC 26</h3>
+                        <p class="sale-price">
+                            <span class="old-price">2399 грн</span>
+                            <span class="new-price">1199 грн</span>
+                        </p>
+                        <p class="sale-timer">Закінчується через: <span class="timer">3 дні 12:30:15</span></p>
+                        <button class="btn btn-primary btn-small">
+                            <i class="fas fa-bolt"></i> Купити зараз
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="sale-card">
+                    <div class="sale-badge">-30%</div>
+                    <div class="sale-image">
+                        <img src="https://kor.ill.in.ua/m/610x385/1608900.jpg" alt="GTA V">
+                    </div>
+                    <div class="sale-info">
+                        <h3>Grand Theft Auto V</h3>
+                        <p class="sale-price">
+                            <span class="old-price">999 грн</span>
+                            <span class="new-price">699 грн</span>
+                        </p>
+                        <p class="sale-timer">Закінчується через: <span class="timer">1 день 08:45:20</span></p>
+                        <button class="btn btn-primary btn-small">
+                            <i class="fas fa-bolt"></i> Купити зараз
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="sale-card">
+                    <div class="sale-badge">-40%</div>
+                    <div class="sale-image">
+                        <img src="https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7" alt="Cyberpunk 2077">
+                    </div>
+                    <div class="sale-info">
+                        <h3>Cyberpunk 2077</h3>
+                        <p class="sale-price">
+                            <span class="old-price">1299 грн</span>
+                            <span class="new-price">779 грн</span>
+                        </p>
+                        <p class="sale-timer">Закінчується через: <span class="timer">2 дні 16:20:10</span></p>
+                        <button class="btn btn-primary btn-small">
+                            <i class="fas fa-bolt"></i> Купити зараз
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sales-info">
+                <p><i class="fas fa-info-circle"></i> Акції оновлюються щотижня. Слідкуйте за новими пропозиціями!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секція переваг -->
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <h2 class="section-title">Наші переваги</h2>
+            <p class="section-subtitle">Чому клієнти обирають Kroko Store</p>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Миттєва активація</h3>
+                    <p>Ключ активується в момент оплати. Жодних очікувань — тільки миттєвий доступ до гри!</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Офіційні ключі</h3>
+                    <p>Працюємо лише з офіційними дистриб'юторами. Гарантія якості та безпеки кожного ключа.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Підтримка 24/7</h3>
+                    <p>Наша служба підтримки працює цілодобово. Вирішимо будь-яке питання протягом 5 хвилин.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Kroko Store</span>
+                </div>
+                <p>© 2023 Kroko Store. Всі права захищено.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальне вікно -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-image" class="modal-image"></div>
+            <h2 id="modal-title"></h2>
+            <div class="modal-info">
+                <p><strong>Категорія:</strong> <span id="modal-category"></span></p>
+                <p><strong>Ціна:</strong> <span id="modal-price"></span> грн</p>
+                <p><strong>Платформа:</strong> <span id="modal-platform"></span></p>
+                <p><strong>Вікові обмеження:</strong> <span id="modal-age"></span></p>
+                <p><strong>Наявність:</strong> <span id="modal-stock"></span></p>
+            </div>
+            
+            <h3>Системні вимоги</h3>
+            <div class="requirements">
+                <div class="req-box">
+                    <h4>Мінімальні (низькі)</h4>
+                    <p><strong>Процесор:</strong> <span id="modal-cpu-min"></span></p>
+                    <p><strong>Відеокарта:</strong> <span id="modal-gpu-min"></span></p>
+                    <p><strong>Оперативна пам'ять:</strong> <span id="modal-ram-min"></span></p>
+                </div>
+                <div class="req-box">
+                    <h4>Рекомендовані (високі)</h4>
+                    <p><strong>Процесор:</strong> <span id="modal-cpu-rec"></span></p>
+                    <p><strong>Відеокарта:</strong> <span id="modal-gpu-rec"></span></p>
+                    <p><strong>Оперативна пам'ять:</strong> <span id="modal-ram-rec"></span></p>
+                </div>
+            </div>
+            
+            <p class="modal-description"><strong>Опис:</strong> <span id="modal-description"></span></p>
+            
+            <button id="modal-add-btn" class="add-btn">Додати в кошик</button>
+        </div>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>
