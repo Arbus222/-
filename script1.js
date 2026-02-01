@@ -1,4 +1,4 @@
-// Масив ігор (10 ігор)
+
 const products = [
     {
         id: 1,
@@ -174,7 +174,7 @@ const closeBtn = document.querySelector(".close");
 const modalAddBtn = document.getElementById("modal-add-btn");
 let currentModalGame = null;
 
-// Елементи навігації
+
 const navLinks = document.querySelectorAll('.nav-link');
 const cartIcon = document.getElementById('cart-icon');
 const logoHome = document.getElementById('logo-home');
@@ -288,7 +288,7 @@ function addToCart(gameId, button = null) {
     }
 }
 
-// Відобразити ігри
+
 function renderGames(games) {
     productsContainer.innerHTML = "";
     
@@ -384,7 +384,7 @@ function openModal(game) {
     document.getElementById('modal-stock').textContent = game.inStock ? 'Є в наявності' : 'Немає в наявності';
     document.getElementById('modal-description').textContent = game.description;
     
-    // Системні вимоги
+    
     document.getElementById('modal-cpu-min').textContent = game.requirements.min.cpu;
     document.getElementById('modal-gpu-min').textContent = game.requirements.min.gpu;
     document.getElementById('modal-ram-min').textContent = game.requirements.min.ram;
@@ -409,7 +409,7 @@ function closeModal() {
     currentModalGame = null;
 }
 
-// Скинути фільтри
+
 function resetFilters() {
     searchInput.value = '';
     categoryFilter.value = 'all';
@@ -618,4 +618,5 @@ window.addEventListener('scroll', function() {
         nav.style.background = 'rgba(10, 10, 10, 0.95)';
         nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
     }
+
 });
